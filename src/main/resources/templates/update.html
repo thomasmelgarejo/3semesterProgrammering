@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Update</h1>
+    </div>
+    <div class="row">
+        <form action="/update" th:object="${sogne}" method="post">
+            <div class="form-group">
+                <input type="hidden" name="id" th:value="${id}">
+                <!--                sognkode-->
+                <label for="sogneKode">Sognkode:</label>
+                <input id="sogneKode" class="form-control" type="text" name="sogneKode" th:field="*{sogneKode}" th:value="${sogneKode}">
+                <!--                navn-->
+                <label for="navn">navn:</label>
+                <input id="navn" class="form-control" type="text" name="navn" th:field="*{sogneNavn}" th:value="${sogneNavn}">
+                <!--                smittetryk-->
+                <label for="smittetryk">smittetryk:</label>
+                <input id="smittetryk" class="form-control" type="text" name="smittetryk" th:field="*{smittetryk}" th:value="${smittetryk}">
+                <!--                nedlukDato-->
+                <label for="nedlukDato">nedlukDato:</label>
+                <input id="nedlukDato" class="form-control" type="date" name="nedlukDato" th:field="*{nedlukDato}" th:value="${nedlukDato}">
+                <!--                checked-->
+                <label for="checked">checked:</label>
+                <input id="checked" class="form-control" type="checkbox" name="checked" th:field="*{checked}" th:value="${checked}">
+                <!--                kommuneid-->
+                <label for="kommuneid">Kommune id:</label>
+                <input id="kommuneid" class="form-control" type="text" name="kommuneid" th:field="*{kommune.id}" >
+<!--                <input id="kommuneid" class="form-control" type="text" name="kommuneid" th:field="*{kommune.navn}" >-->
+            </div>
+
+            <p id="space"></p>
+            <div class="form-group">
+                <input type="submit" value="UPDATE" class="btn btn-success" role="button">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

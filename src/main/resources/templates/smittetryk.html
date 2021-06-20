@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Viser Smittetryk</title>
+</head>
+
+<body>
+<h1>Viser Smittetryk</h1>
+<div class="container">
+
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Kommune</th>
+                <th>Smittetryk</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="s : ${smittetryk}">
+                <td th:text="${s.kommuneNavn}">Kommune</td>
+                <td th:text="${#numbers.formatDecimal(s.avgSmitteTryk, 0, 'COMMA', 1, 'POINT')}">avgSmitteTryk</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

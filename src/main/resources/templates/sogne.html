@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Viser alle sogne</title>
+</head>
+
+
+<body>
+<h1>Viser alle sogne</h1>
+<div class="container">
+
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Sognekode</th>
+                <th>Sogne Navn</th>
+                <th>smittetryk</th>
+                <th>NedlukDato</th>
+                <th>Checkbox</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="s : ${sogne}">
+                <td th:text="${s.id}">id</td>
+                <td th:text="${s.sogneKode}">sognekode</td>
+                <td th:text="${s.sogneNavn}">navn</td>
+                <td th:text="${s.smittetryk}">smittetryk</td>
+                <td th:text="${#dates.format(s.nedlukDato, 'dd-MMM-yyyy')}"></td>
+                <td>
+                    <!--                    <input type="checkbox" th:checked="${flag}"/> Flag-->
+                    <input id = "chkBox" name = "chkBox" type = "checkbox" value = "Struts 2" th:checked="${s.checked}"/>
+                    <label for = "chkBox">Nedlukket</label>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <!--                        <a th:href="@{'/updateNote/' + ${m.note.id}}" class="btn btn-warning">Edit Notes</a>-->
+                        <a th:href="@{'/update/' + ${s.id}}" class="btn btn-warning">Update</a>
+                        <a th:href="@{'/delete/' + ${s.id}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h1></h1>
+
+    <div class="row">
+        <a href="create" class="btn btn-primary" role="button">Create Model</a>
+    </div>
+</div>
+</body>
+</html>
